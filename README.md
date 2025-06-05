@@ -27,8 +27,8 @@ sudo chmod +x installer.sh
 ./installer.sh
 ```
 
-=== Setup Cross Compiler Toolchains ===
-
+## === Setup Cross Compiler Toolchains ===
+```
 1. aarch64-unknown-linux-gnu (ARM 64-bit umum)
 export CROSS_COMPILE=aarch64-unknown-linux-gnu-
 export PATH=/opt/cross/aarch64-unknown-linux-gnu/bin:$PATH
@@ -44,7 +44,7 @@ export PATH=/opt/cross/armv8-rpi3-linux-gnueabihf/bin:$PATH
 4. arm-unknown-linux-gnueabihf (ARM 32-bit, EABI dengan hard float)
 export CROSS_COMPILE=arm-unknown-linux-gnueabihf-
 export PATH=/opt/cross/arm-unknown-linux-gnueabihf/bin:$PATH
-
+```
 --------------------------------------------------------
 
 Catatan Penting:
