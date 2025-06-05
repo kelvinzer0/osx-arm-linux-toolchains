@@ -20,3 +20,9 @@ On Catalina and later, executables need to be code-signed. This can be done via:
 ## Support or Contact
 
 If you find a problem or would like to see support for a new architecture or component combination, please [file an issue](https://github.com/thinkski/osx-arm-linux-toolchains/issues).
+
+## Installer
+```
+sudo chmod +x installer.sh
+./installer.sh
+```
