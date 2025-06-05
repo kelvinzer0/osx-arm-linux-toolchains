@@ -32,6 +32,8 @@ sudo chmod +x installer.sh
 1. aarch64-unknown-linux-gnu (ARM 64-bit umum)
 export CROSS_COMPILE=aarch64-unknown-linux-gnu-
 export PATH=/opt/cross/aarch64-unknown-linux-gnu/bin:$PATH
+export HOSTCFLAGS="-I/opt/cross/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot/usr/include"
+export HOSTLDFLAGS="-L/opt/cross/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot/usr/lib"
 
 2. arm-unknown-linux-gnueabi (ARM 32-bit, EABI, tanpa hard float)
 export CROSS_COMPILE=arm-unknown-linux-gnueabi-
