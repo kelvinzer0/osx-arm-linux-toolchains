@@ -26,3 +26,29 @@ If you find a problem or would like to see support for a new architecture or com
 sudo chmod +x installer.sh
 ./installer.sh
 ```
+
+=== Setup Cross Compiler Toolchains ===
+
+1. aarch64-unknown-linux-gnu (ARM 64-bit umum)
+export CROSS_COMPILE=aarch64-unknown-linux-gnu-
+export PATH=/opt/cross/aarch64-unknown-linux-gnu/bin:$PATH
+
+2. arm-unknown-linux-gnueabi (ARM 32-bit, EABI, tanpa hard float)
+export CROSS_COMPILE=arm-unknown-linux-gnueabi-
+export PATH=/opt/cross/arm-unknown-linux-gnueabi/bin:$PATH
+
+3. armv8-rpi3-linux-gnueabihf (ARMv8 untuk Raspberry Pi 3, 64-bit dengan hard float)
+export CROSS_COMPILE=armv8-rpi3-linux-gnueabihf-
+export PATH=/opt/cross/armv8-rpi3-linux-gnueabihf/bin:$PATH
+
+4. arm-unknown-linux-gnueabihf (ARM 32-bit, EABI dengan hard float)
+export CROSS_COMPILE=arm-unknown-linux-gnueabihf-
+export PATH=/opt/cross/arm-unknown-linux-gnueabihf/bin:$PATH
+
+--------------------------------------------------------
+
+Catatan Penting:
+- Sesuaikan toolchain dengan target device dan kebutuhan build kamu.
+- Setelah setting ini, kamu bisa menjalankan build kernel/module dengan perintah make menggunakan cross-compiler.
+- Untuk permanen, simpan export ini di ~/.bash_profile atau ~/.zshrc.
+- Pastikan folder /opt/cross/... sesuai dengan lokasi instalasi toolchain kamu.
