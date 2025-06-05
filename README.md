@@ -32,8 +32,6 @@ sudo chmod +x installer.sh
 1. aarch64-unknown-linux-gnu (ARM 64-bit umum)
 export CROSS_COMPILE=aarch64-unknown-linux-gnu-
 export PATH=/opt/cross/aarch64-unknown-linux-gnu/bin:$PATH
-export HOSTCFLAGS="-I/opt/cross/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot/usr/include"
-export HOSTLDFLAGS="-L/opt/cross/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot/usr/lib"
 
 2. arm-unknown-linux-gnueabi (ARM 32-bit, EABI, tanpa hard float)
 export CROSS_COMPILE=arm-unknown-linux-gnueabi-
@@ -46,6 +44,17 @@ export PATH=/opt/cross/armv8-rpi3-linux-gnueabihf/bin:$PATH
 4. arm-unknown-linux-gnueabihf (ARM 32-bit, EABI dengan hard float)
 export CROSS_COMPILE=arm-unknown-linux-gnueabihf-
 export PATH=/opt/cross/arm-unknown-linux-gnueabihf/bin:$PATH
+
+# wajib Toolchain prefix
+# Untuk tool internal host (jalan di macOS)
+export HOSTCC=clang
+export HOSTCFLAGS=""
+export HOSTLDFLAGS=""
+# Override CC manual:
+export CC=${CROSS_COMPILE}gcc
+export CFLAGS="--sysroot=${CROSS_COMPILE}../${CROSS_COMPILE##*/}/sysroot -I${CROSS_COMPILE}../${CROSS_COMPILE##*/}/sysroot/usr/include"
+export LDFLAGS="--sysroot=${CROSS_COMPILE}../${CROSS_COMPILE##*/}/sysroot -L${CROSS_COMPILE}../${CROSS_COMPILE##*/}/sysroot/usr/lib"
+
 ```
 --------------------------------------------------------
 
